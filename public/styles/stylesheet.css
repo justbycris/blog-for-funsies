@@ -1,0 +1,449 @@
+ /* 
+ FONTS: 
+   Headers: Libre Baskerville | font-family: "Libre Baskerville", serif;
+   Accent: Source Sans Pro | font-family: "Source Code Pro", monospace;
+   Body: Georgia | font-family: "Georgia", sans-serif;
+   
+ COLORS: 
+   Accent Purple: #7800ff;
+
+
+   NOTES: 
+   -Abby wants the form to cover the top part of the buttons cause it bothers her
+   -The new post form only opens once after closing, fix thats
+*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lustria&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+ 
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    box-sizing: border-box;
+ }
+
+ /* ---- HEADER ---*/
+
+ .nav-elements {
+   width: 100%;
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 20px;
+   border-bottom: 1px solid rgb(241, 238, 238);
+   position: sticky;
+   top: 0;
+   background-color: #fff;
+   z-index: 3;
+ }
+
+ .logo {
+   width: 100px;
+   padding: 0; 
+   margin: 0;
+   position: sticky;
+   top: 0;
+ }
+
+ nav {
+   position: relative;
+   padding: 20px 0;
+   position: sticky;
+   top: 0;
+ }
+
+ nav a {
+   text-decoration: none;
+   font-family: "Source Code Pro", monospace;
+   text-transform: lowercase;
+   margin: 0 20px;
+   position: sticky;
+   top: 0;
+   color: #3e0084;
+ }
+
+ nav a:hover {
+   text-decoration: underline;
+ }
+
+ .new-btn {
+   font-family: "Source Code Pro", monospace;
+   padding: 7px 15px;
+   background-color:#6a00e2;
+   color: #fff;
+   border-radius: 3px;
+   outline: none;
+   border:none;
+   cursor: pointer;
+ }
+
+/* ---- NEW POST FORM ----- */
+
+.newpost {
+   position:absolute;
+   top: -50%;
+   left: 50%;
+   transform: translate(-50%, 0%);
+   width: 60%;
+   margin: 0 auto;
+   box-sizing: border-box;
+   padding: 35px 15px;
+   z-index:2; 
+   opacity: 0;
+   background-color: #f7f7f7;
+}
+
+.form-overlay {
+   width: 100vw;
+   height: 100vh;
+   background-color: #170130;
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;/* semi-transparent black */
+}
+
+.show-overlay {
+   opacity: .5;
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.showform {
+   opacity: 1;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   animation-name: showForm;
+   animation-duration: .7s;
+   background-color: #f7f7f7;
+}
+
+@keyframes showForm {
+   0%   {top: 0%}
+   100% {top: 50%}
+ }
+
+.close {
+   font-family: "Source Code Pro", monospace;
+   font-size: 14px;
+   color: rgb(176, 176, 176);
+   cursor: pointer;
+   position: absolute;
+   left: 97%;
+   top: 10px;
+   
+}
+
+.closeForm {
+   top: -50%;
+   left:-50%;
+   animation-name: hideForm;
+   animation-duration: .7s;
+   opacity: 0;
+}
+
+
+@keyframes hideForm {
+   0%   {top: 50%; opacity: 1;}
+   100% {top: -50%; opacity: 0;}
+ }
+
+.newpost h1, .edit-title h1 {
+   font-family: "Libre Baskerville", serif;
+   font-size: 2.5rem;
+   color: #1e1e1e;
+   width: 100%;
+   text-align: center;
+   margin-top: 30px;
+}
+
+.np-title-input {
+   font-size: 1.8rem;
+}
+
+.newpost form {
+   display: flex;
+   flex-direction: column ;
+   max-width: 100%;
+   margin: 0 auto;
+   background-color: #f7f7f7;
+}
+
+.newpost form label {
+   display: none;
+}
+
+.newpost form input[type="text"] {
+   padding: 4px 3px;
+   margin: 15px 0;
+   border-style: none none solid none;
+   border-width: 0 0 1px 0;
+   outline: none;
+   font-family: "Source Code Pro", monospace;
+   border-radius: 3px;
+}
+
+
+.newpost form textarea {
+   border-style: none none solid none;
+   border-width: 0 0 1px 0;
+   height: 150px;
+   margin: 15px 0;
+   padding: 4px 3px;
+   border-radius: 3px;
+   outline: none;
+}
+
+.newpost form input[type="submit"], .edit input[type="submit"] {
+   font-family: "Source Code Pro", monospace;
+   cursor: pointer;
+   background-color: #7800ff;
+   color: white;
+   text-align: center;
+   border: none;
+   outline: none;
+   padding: 10px;
+   width:250px;
+   max-width: 100%;
+   margin: 0 0 0 auto;
+   border-radius: 3px;
+}
+
+.newpost form input[type="submit"]:hover, .edit input[type="submit"]:hover {
+   background-color: #6a00e2;
+}
+
+/* ----- HEADER -----*/
+
+section .posts {
+   width: 100%;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   
+}
+
+.post {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   margin: 25px auto;
+   padding: 20px 20px;
+   border-style: solid;
+   border-width: 1px 0 0 0;
+   
+}
+
+h2 {
+   font-family: "Libre Baskerville", serif;
+   font-weight: bold;
+   font-size: 1.5rem;
+   color: #242424;
+   margin: 0 0 10px 0;
+}
+
+.author {
+   font-family: "Source Code Pro", monospace;
+   font-size: .9rem;
+   text-transform: uppercase;
+   color: #7800ff;
+   font-weight: bold;
+   margin: 0 0 10px 0;
+}
+
+.content {
+   font-family: "Georgia", sans-serif;
+   font-size: 20px;
+   color: #242424;
+   line-height: 32px;
+   white-space: pre-wrap; /* Allows wrapping of text instead of forcing it all on one line */
+    word-wrap: break-word; 
+    overflow-x: auto; /
+}
+
+.content br {
+   opacity: 0;
+}
+
+.btns {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.edit-btn {
+   background-color: #7800ff;
+   border-radius: 3px;
+   text-align: center;
+   width: 80px;
+   padding: 5px 15px;
+   color: white;
+   margin: 0 20px;
+   text-decoration: none;
+   font-family: "Source Code Pro", monospace;
+   cursor: pointer;
+}
+
+.edit-btn:hover {
+   background-color: #6a00e2;
+}
+
+
+.delete-form input[type="submit"] {
+   background-color: rgb(215, 77, 77);
+   padding: 5px 15px;
+   outline: none;
+   border: none;
+   border-radius: 3px;
+   width: 80px;
+   box-sizing: border-box;
+   text-align: center;
+   margin: 10px auto;
+   cursor: pointer;
+   color: #fff;
+}
+
+.delete-form input[type="submit"]:hover {
+   background-color: rgb(202, 65, 65);
+}
+
+/*------ EDIT FORM -----*/
+
+section .edit {
+   width: 100%;
+   box-sizing: border-box;
+   font-family: "Source Code Pro", monospace;
+   font-size: 16px;
+}
+
+.edit-title {
+   width: 100%;
+}
+
+.edit-title h1 {
+   text-align: center;
+}
+
+.edit-form {
+   width: 65%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: 0 auto;
+}
+
+.edit-title-input {
+   font-size: 1.8rem;
+
+}
+
+
+.edit-form input[type="text"], textarea {
+   padding: 8px 5px;
+   margin: 25px 0;
+   border-style: none none solid none;
+   border-width: 0 0 1px 0;
+   outline: none;
+   font-family: "Source Code Pro", monospace;
+   border-radius: 3px;
+   background-color: #f4f4f4;
+} 
+
+.edit-form label {
+   display: none;
+}
+
+.edit-form textarea {
+   min-height: 150px;
+}
+
+.edit-btns {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   align-items: flex-end;
+}
+
+.back-btn {
+   text-decoration: underline;
+   color: gray;
+   font-family: "Source Code Pro", monospace;
+   font-size: 14px;
+   cursor: pointer;
+}
+
+.back-btn:hover {
+   color: rgb(85, 85, 85);
+}
+
+
+
+
+
+/* ---- FOOTTER ---*/
+.footer {
+   width: 100%;
+   position: absolute;
+   bottom: 0;
+   height: 60px;
+   margin-top: 50px;
+}
+
+.footer-copy {
+   width: 55%;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   line-height: 60px;
+   border-style: solid;
+   border-width: 1px 0 0 0;
+}
+
+.copyright, .repo {
+   text-decoration: none;
+   font-family: "Source Code Pro", monospace;
+   font-size: .8rem;
+   color: #242424;
+}
+
+.repo:hover {
+   color: #6a00e2;
+   text-decoration: underline;
+}
+
+
+/* -------- MEDIA BREAKING POINTS ------ */
+@media (max-width: 767px) {
+   .logo {
+      width: 65px;
+   }
+   nav a {
+      margin: 0 8px;
+   }
+   .post {
+      width: 85%;
+   }
+   .btns {
+   margin: 25px 0 0 0;
+   }
+
+   .footer-copy {
+      width: 90%;
+      padding: 0 20px;
+      box-sizing: border-box;
+   }
+
+
+}

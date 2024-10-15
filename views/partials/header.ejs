@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloggy | For Funsies</title>
+    <link type="text/css" href="/public/styles/stylesheet.css" rel="stylesheet" />
+    <link rel="icon" href="/images/Bloggy_Icon.png" >
+</head>
+<body>
+
+    <div class="nav-elements">
+        <img src="/images/BlackLogo-transparent.svg" class="logo" /> 
+        
+        <nav>
+            <% if (locals.editPage === 'edit.ejs') { %>
+
+            <% } else { %>
+                <button type="button" class="new-btn" id="newpost-btn" >new post</button>
+            <% } %>
+            <a href="/">Home</a>
+            <a href="">code</a>
+        </nav>  
+    </div>
+
+</body>
+</html>

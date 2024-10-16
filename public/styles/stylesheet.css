@@ -23,6 +23,7 @@
     box-sizing: border-box;
  }
 
+
  /* ---- HEADER ---*/
 
  .nav-elements {
@@ -271,6 +272,7 @@ h2 {
    word-wrap: break-word; 
    overflow-x: auto; 
    text-align: left;
+   margin: 10px 0 50px 0;
 }
 
 .content br {
@@ -324,8 +326,12 @@ h2 {
 
 .rmore-btn {
    font-family: "Source Code Pro", monospace;
-   color: #515151;
+   color: #350072;
    font-size: 16px;
+}
+
+.rm-btn:hover {
+   color: #7800ff;
 }
 
 .rm-article {
@@ -423,7 +429,7 @@ section .edit {
 /* ---- FOOTTER ---*/
 .footer {
    width: 100%;
-   position: absolute;
+   position: relative;
    bottom: 0;
    height: 60px;
    margin-top: 50px;
@@ -431,7 +437,7 @@ section .edit {
 }
 
 .footer-copy {
-   width: 55%;
+   width: 75%;
    margin: 0 auto;
    display: flex;
    flex-direction: row;

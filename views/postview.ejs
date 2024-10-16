@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link type="text/css" href="/styles/stylesheet.css" rel="stylesheet" />
-
     <link rel="icon" href="../public/images/Bloggy_Icon.png" >
 
 </head>
 <body>
      <!----------HEADER---------->
      <%- include("././partials/header.ejs") %> 
-     <div class="container">
-         <h1><%= postView?.title %></h1>
-         <p><%= postView?.author %></p>
-         <p><%= postView?.content %></p>
+     
+     <div class="rm-article">
+         <h2 class="lg-title"><%= postView?.title %></h2>
+         <p class="author"><%= postView?.author %></p>
+         <p class="content"><%= postView?.content %></p>
        
+         <div class="back-btn">
+            <a href="../">go back</a>
+         </div>
      </div>
  
      

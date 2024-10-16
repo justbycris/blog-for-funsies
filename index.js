@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended:true }));
             postId: 1234,
             title: "Welcome to Bloggy (:",
             author: "OG",
-            content: `This is a fun blog created with Node.js, Express, EJS, HTML, CSS and Javascript.  Feel free to play around with it (:`
+            content:`This is a fun blog created with Node.js, Express, EJS, HTML, CSS and Javascript.  Feel free to play around with it (:`
         } , 
         {
             postId: 5678,

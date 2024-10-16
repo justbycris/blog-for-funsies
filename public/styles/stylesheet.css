@@ -267,9 +267,10 @@ h2 {
    font-size: 20px;
    color: #242424;
    line-height: 32px;
-   white-space: pre-wrap; /* Allows wrapping of text instead of forcing it all on one line */
-    word-wrap: break-word; 
-    overflow-x: auto; /
+   white-space: pre-wrap;  /* Allows wrapping of text instead of forcing it all on one line */
+   word-wrap: break-word; 
+   overflow-x: auto; 
+   text-align: left;
 }
 
 .content br {
@@ -318,6 +319,30 @@ h2 {
 .delete-form input[type="submit"]:hover {
    background-color: rgb(202, 65, 65);
 }
+
+/*------ READ MORE / FULL POST VIEW -------*/
+
+.rmore-btn {
+   font-family: "Source Code Pro", monospace;
+   color: #515151;
+   font-size: 16px;
+}
+
+.rm-article {
+   width: 70%;
+   margin: 45px auto;
+}
+
+.lg-title {
+   font-family: "Libre Baskerville", serif;
+   font-size: 3rem;
+   color: #1e1e1e;
+   margin: 20px 0;
+}
+
+
+
+
 
 /*------ EDIT FORM -----*/
 
@@ -402,6 +427,7 @@ section .edit {
    bottom: 0;
    height: 60px;
    margin-top: 50px;
+   background-color: #ffffff;
 }
 
 .footer-copy {

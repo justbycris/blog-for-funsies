@@ -38,12 +38,10 @@
                       <!-- <p>Post ID: <%= allPosts[i].postId %></p> -->
                       <h2><%= allPosts[i].title %></h2>
                       <p class="author">By: <%= allPosts[i].author %></p>
-                      <p width="200px" class="content">
-                        <%= allPosts[i].content.slice(0, 100) %>
-                        <% if (allPosts[i].content.length > 300) { %>
-                           <a href="/postview/<%= allPosts[i].postId %>">read more</a>
-                        <% } %>
-                      </p>
+                      
+                        <% if(allPosts[i].content.length > 300){%>
+                          <p width="200px" class="content"><%= allPosts[i].content.slice(0, 100) %><%- `... <a href='/postview/${allPosts[i].postId}' class="rmore-btn">read more</a>` %><% } else {%><p width="200px" class="content"><%= allPosts[i].content%></p>
+                          <% } %></p>
                       <div class="btns">
                         <!--EDIT BUTTON-->
                         <a class="edit-btn" href="/edit/<%= allPosts[i].postId %>">edit</a>

@@ -135,22 +135,20 @@ app.post("/", (req, res) => {
 });
 
 
-//READ MORE POSTS WITH MORE THAN 300 CHARACTERS IN HOME FEED
+//READ MORE FUNCTIONALITY 
 app.get("/postview/:id", (req, res) => {
     const targetPostId = req.params.id;
     const postToView = allPosts.find(post => post.postId === parseInt(targetPostId));
 
     if (postToView !== -1) {
         
-       res.render('postview.ejs', { postView: postToView, allPosts: allPosts})
+       res.render('postview.ejs', { postView: postToView, allPosts: allPosts, postPage: 'postview.ejs'})
     } else {
         res.status(404).send('Post Not Found!');
     }
 })
 
-
 //EDIT POSTS ROUTES 
-
 //Identify pots to edit
 app.get('/edit/:id', (req, res) => {
     const targetPostId = req.params.id;

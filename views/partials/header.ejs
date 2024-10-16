@@ -13,13 +13,13 @@
         <img src="/images/BlackLogo-transparent.svg" class="logo" /> 
         
         <nav>
-            <% if (locals.editPage === 'edit.ejs') { %>
-
+            <% if (locals.editPage === 'edit.ejs' || locals.postPage === 'postview.ejs') { %>
+            <% console.log('Hide New Post button') %>
             <% } else { %>
                 <button type="button" class="new-btn" id="newpost-btn" >new post</button>
             <% } %>
             <a href="/">Home</a>
-            <a href="">code</a>
+            <a href="https://github.com/justbycris/blog-for-funsies" target="_blank">code</a>
         </nav>  
     </div>
 

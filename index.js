@@ -20,9 +20,17 @@ app.use(bodyParser.urlencoded({ extended:true }));
             postId: 1234,
             title: "Welcome to Bloggy (:",
             author: "OG",
-            content: `This is a fun blog created with Node.js, Express, EJS, HTML, CSS and Javascript. 
-Feel free to play around with it (:`
-        }   
+            content: `This is a fun blog created with Node.js, Express, EJS, HTML, CSS and Javascript.  Feel free to play around with it (:`
+        } , 
+        {
+            postId: 5678,
+            title: "Testing characters",
+            author: "LoremIpsum",
+            content:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra erat eu turpis accumsan, quis facilisis arcu aliquet. Quisque dapibus varius justo ut ultricies. Nunc congue commodo porta. Nulla quis nulla et dui bibendum tristique. Sed tristique felis et iaculis pretium. Sed bibendum turpis quis nibh bibendum tincidunt. Sed feugiat, turpis egestas gravida cursus, nibh ligula vestibulum augue, id convallis velit sem commodo augue. Suspendisse sit amet egestas tellus. Nunc eget lorem convallis, suscipit mi at, malesuada justo. Etiam sit amet enim quis nisl semper feugiat eu id tortor. Praesent egestas in lectus id ultrices. In maximus libero purus, pretium elementum nisi porta ut. Vestibulum porttitor vel sem at bibendum.
+Suspendisse potenti. Aliquam dignissim eros velit, ut mollis justo tempus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. In elit est, placerat id metus in, fringilla efficitur metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque eget eleifend risus. Vivamus facilisis, massa a malesuada dignissim, nulla lectus laoreet odio, nec viverra metus ex fringilla justo. Sed bibendum placerat blandit. Donec quis dui nibh. Sed libero mauris, tempor non dignissim a, varius et sapien. Suspendisse nibh ex, finibus eget suscipit sit amet, maximus eu ex. Duis rhoncus nulla eu turpis euismod dignissim. Vivamus eu facilisis sapien, sed vehicula ex. Curabitur elit enim, facilisis ac odio vel, dapibus auctor orci.
+Nulla nibh odio, pellentesque accumsan arcu nec, vehicula ultrices neque. Aenean eu justo cursus, aliquet velit vel, efficitur tellus. Proin laoreet dolor venenatis turpis fermentum, sed suscipit elit ullamcorper. Mauris sed quam quis sapien placerat fermentum non vel lacus. Fusce at turpis nec dolor tristique gravida. Sed tempor interdum purus sit amet porttitor. Maecenas enim metus, lobortis rhoncus viverra quis, blandit nec lectus. Donec cursus, dui ac pretium malesuada, tortor purus sodales elit, sed lacinia tellus erat sit amet dui. Vestibulum luctus, est nec tempus interdum, mi libero aliquam lorem, eu tincidunt tellus elit et tellus. Morbi non ante sed sapien tempor interdum. Curabitur tristique, libero sit amet consectetur viverra, quam magna aliquet ante, et sagittis justo turpis euismod libero. Praesent vitae rhoncus sem, non mattis lectus. Donec feugiat dui est, id pellentesque orci mattis et.
+Quisque laoreet eros pulvinar eleifend hendrerit. Sed sodales vehicula sapien ac suscipit. Aliquam gravida dignissim ligula ut imperdiet. Etiam libero felis, molestie eu accumsan non, tristique quis nisl. Etiam a tempus nulla. Etiam et elit eu ex convallis scelerisque. Quisque venenatis, mauris vel sagittis ultricies, elit nisi placerat massa, id hendrerit felis magna in ex. Morbi quis rutrum est. Nulla bibendum, diam id lacinia tincidunt, velit nibh ullamcorper sem, nec convallis mi lorem vitae augue. Vestibulum malesuada dictum nibh vitae rhoncus. Duis sodales risus id velit dapibus tristique ac ut magna. Praesent ut sodales neque.`
+        }
     ]
 
 
@@ -31,8 +39,9 @@ app.get("/", (req, res) => {
     res.render("index.ejs", { allPosts: allPosts });
 }); 
 
+
 //Create a new post
-app.post("/allposts", (req, res) => {
+app.post("/", (req, res) => {
      //Assign random ID to each post
      function generateID() {
         return Math.floor(Math.random() * 10000);
@@ -55,6 +64,21 @@ app.post("/allposts", (req, res) => {
         allPosts: allPosts,
     });
 });
+
+
+//READ MORE POSTS WITH MORE THAN 300 CHARACTERS IN HOME FEED
+app.get("/postview/:id", (req, res) => {
+    const targetPostId = req.params.id;
+    const postToView = allPosts.find(post => post.postId === parseInt(targetPostId));
+
+    if (postToView !== -1) {
+        
+       res.render('postview.ejs', { postView: postToView, allPosts: allPosts})
+    } else {
+        res.status(404).send('Post Not Found!');
+    }
+})
+
 
 //EDIT POSTS ROUTES 
 

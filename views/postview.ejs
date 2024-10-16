@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" href="/styles/stylesheet.css" rel="stylesheet" />
+
+    <link rel="icon" href="../public/images/Bloggy_Icon.png" >
+
+</head>
+<body>
+     <!----------HEADER---------->
+     <%- include("././partials/header.ejs") %> 
+     <div class="container">
+         <h1><%= postView?.title %></h1>
+         <p><%= postView?.author %></p>
+         <p><%= postView?.content %></p>
+       
+     </div>
+ 
+     
+      <!--------FOOTER---------->
+    <%- include("././partials/footer.ejs") %> 
+    <script src="/app.js" ></script>
+</body>
+</html>

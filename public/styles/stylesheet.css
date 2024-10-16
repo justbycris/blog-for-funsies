@@ -9,8 +9,7 @@
 
 
    NOTES: 
-   -Abby wants the form to cover the top part of the buttons cause it bothers her
-   -The new post form only opens once after closing, fix thats
+   -Make post if its longer than 300 characters to say -Read more and lead you to a page to read more 
 */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lustria&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
@@ -87,13 +86,15 @@
    top: -50%;
    left: 50%;
    transform: translate(-50%, 0%);
-   width: 60%;
+   width: 800px;
+   max-width: 100%;
    margin: 0 auto;
    box-sizing: border-box;
    padding: 35px 15px;
    z-index:2; 
    opacity: 0;
    background-color: #f7f7f7;
+
 }
 
 .form-overlay {
@@ -171,6 +172,7 @@
 .newpost form {
    display: flex;
    flex-direction: column ;
+   width: 750px;
    max-width: 100%;
    margin: 0 auto;
    background-color: #f7f7f7;
@@ -335,11 +337,14 @@ section .edit {
 }
 
 .edit-form {
-   width: 65%;
+   width: 700px;
+   max-width: 100%;
    display: flex;
    flex-direction: column;
    justify-content: center;
    margin: 0 auto;
+   padding: 15px 25px;
+   box-sizing: border-box;
 }
 
 .edit-title-input {
